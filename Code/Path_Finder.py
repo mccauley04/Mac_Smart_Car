@@ -128,6 +128,13 @@ def servo_color_carstate():
 
 
 try:
+    while True:
     pre_check()
     key_scan()
     servo_color_carstate()
+
+except:
+    print 'except'
+
+
+GPIO.cleanup()
