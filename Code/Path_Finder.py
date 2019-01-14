@@ -230,8 +230,8 @@ try:
         distance = Distance_test()
         if distance > 50:
 
-        '''There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
-            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH'''
+            'There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW'
+            'There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH'
 
 
             LeftSensorValue = GPIO.input(AvoidSensorLeft)
@@ -256,8 +256,8 @@ try:
 
         elif 30 <= distance <= 50:
 
-        '''There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
-            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH'''
+            'There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW'
+            'There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH'
 
             LeftSensorValue = GPIO.input(AvoidSensorLeft)
             RightSensorValue = GPIO.input(AvoidSensorRight)
