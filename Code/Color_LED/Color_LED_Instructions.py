@@ -2,6 +2,17 @@
 1. Raspberry Pi Platform - Color LED
 2. Test Color_LED - & Different Colors
 
+If Coding with Python -->
+
+We need to input: python ColorLED.py
+To end : Ctrl-C and then
+
+chmod 777 initpin.sh
+./initpin.sh
+
+---------------------------------------------------------
+
+If coding with C -->
 We need to input: gcc ColorLED.c -o ColorLED -lwiringPi
 We need to run the compiled code: ./ColorLED
 
