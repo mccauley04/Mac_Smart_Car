@@ -20,7 +20,7 @@ GPIO.setup(LED_B, GPIO.OUT)
 try:
     while True:
         GPIO.output(LED_R, GPIO.HIGH)
-        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_G, GPIO.HIGH)
         GPIO.output(LED_B, GPIO.HIGH)
         time.sleep(2)
 

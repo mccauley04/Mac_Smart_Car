@@ -30,6 +30,7 @@ int main()
 	{                        //   LED_R   LED_G    LED_B
     color_led(ON, OFF, OFF); //   1        0        0
     delay(1000);
+    /// This configuration produces a steady Red Light.
 
 
    /// color_led(OFF, ON, OFF); //   0        1        0
