@@ -71,7 +71,7 @@ def pre_check():
 pwm_servo = GPIO.PWM(ServoPin, 50)
 pwm_servo.start(0)
 
-''' Button detection '''
+#Button detection
 def key_scan():
     while GPIO.input(key):
         pass
@@ -82,31 +82,28 @@ def key_scan():
             while not GPIO.input(key):
 	        pass
 
-
-''' Ultrasonic function '''
+#Ultrasonic function
 def Distance_test():
-    GPIO.output(TrigPin, GPIO.HIGH)
+    GPIO.output(TrigPin,GPIO.HIGH)
     time.sleep(0.000015)
-    GPIO.output(TrigPin, GPIO.LOW)
+    GPIO.output(TrigPin,GPIO.LOW)
     while not GPIO.input(EchoPin):
         pass
     t1 = time.time()
     while GPIO.input(EchoPin):
         pass
     t2 = time.time()
-    print
-    "distance is %d " % (((t2 - t1) * 340 / 2) * 100)
+    print "distance is %d " % (((t2 - t1)* 340 / 2) * 100)
     time.sleep(0.01)
-    return ((t2 - t1) * 340 / 2) * 100
+    return ((t2 - t1)* 340 / 2) * 100
 
-'''The servo rotates to the specified angle'''
+#The servo rotates to the specified angle
 def servo_appointed_detection(pos):
     for i in range(18):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos/180)
 
-
 def servo_color_carstate():
-    ''' RED LIGHT '''
+    #red
     GPIO.output(LED_R, GPIO.HIGH)
     GPIO.output(LED_G, GPIO.LOW)
     GPIO.output(LED_B, GPIO.LOW)
@@ -126,18 +123,82 @@ def servo_color_carstate():
     time.sleep(0.8)
     frontdistance = Distance_test()
 
+    if leftdistance < 30 and rightdistance < 30 and frontdistance < 30:
+        #Magenta
+        GPIO.output(LED_R, GPIO.HIGH)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
+        spin_right(35, 35)
+ 	time.sleep(0.58)
+    elif leftdistance >= rightdistance:
+	#Blue
+	GPIO.output(LED_R, GPIO.LOW)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
+	spin_left(35, 35)
+	time.sleep(0.28)
+    elif leftdistance <= rightdistance:
+	#Magenta
+	GPIO.output(LED_R, GPIO.HIGH)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
+	spin_right(35, 35)
+	time.sleep(0.28)
 
+#delay 2s
+time.sleep(2)
+
+# The try/except statement is used to detect errors in the try block.
+# the except statement catches the exception information and processes it.
 try:
     init()
     key_scan()
     while True:
         distance = Distance_test()
+        if distance > 50:
+            # There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
+            # There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH
+            LeftSensorValue = GPIO.input(AvoidSensorLeft)
+            RightSensorValue = GPIO.input(AvoidSensorRight)
 
+            if LeftSensorValue == True and RightSensorValue == True:
+                run(50, 50)
+            elif LeftSensorValue == True and RightSensorValue == False:
+                spin_left(35, 35)
+                time.sleep(0.002)
+            elif RightSensorValue == True and LeftSensorValue == False:
+                spin_right(35, 35)
+                time.sleep(0.002)
+            elif RightSensorValue == False and LeftSensorValue == False:
+                spin_right(35, 35)
+                time.sleep(0.002)
+                run(100, 100)
+                GPIO.output(LED_R, GPIO.LOW)
+                GPIO.output(LED_G, GPIO.HIGH)
+                GPIO.output(LED_B, GPIO.LOW)
+        elif 30 <= distance <= 50:
+            # There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
+            # There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH
+            LeftSensorValue = GPIO.input(AvoidSensorLeft)
+            RightSensorValue = GPIO.input(AvoidSensorRight)
 
-    servo_color_carstate()
+            if LeftSensorValue == True and RightSensorValue == True:
+                run(50, 50)
+            elif LeftSensorValue == True and RightSensorValue == False:
+                spin_left(35, 35)
+                time.sleep(0.002)
+            elif RightSensorValue == True and LeftSensorValue == False:
+                spin_right(35, 35)
+                time.sleep(0.002)
+            elif RightSensorValue == False and LeftSensorValue == False:
+                spin_right(35, 35)
+                time.sleep(0.002)
+                run(50, 50)
+        elif distance < 30:
+            servo_color_carstate()
 
-except:
-    print 'except'
-
-
+except KeyboardInterrupt:
+    pass
+pwm_ENA.stop()
+pwm_ENB.stop()
 GPIO.cleanup()
