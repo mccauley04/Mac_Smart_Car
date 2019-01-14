@@ -40,7 +40,7 @@ GPIO.setwarnings(False)
 # Key pin is initialized into input mode
 # Ultrasonic pin,RGB pin,servo pin initialization
 # infrared obstacle avoidance module pin
-def init():
+def pre_checks():
     global pwm_ENA
     global pwm_ENB
     global pwm_servo
@@ -219,16 +219,23 @@ def servo_color_carstate():
 # delay 2s
 time.sleep(2)
 
-# The try/except statement is used to detect errors in the try block.
-# the except statement catches the exception information and processes it.
+'''
+The try/except statement is used to detect errors in the try block.
+The except statement catches the exception information and processes it.
+'''
+
 try:
-    init()
+    pre_checks()
     key_scan()
     while True:
         distance = Distance_test()
         if distance > 50:
-            # There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
-            # There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH
+
+        ''' 
+            There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
+            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH
+        '''
+
             LeftSensorValue = GPIO.input(AvoidSensorLeft)
             RightSensorValue = GPIO.input(AvoidSensorRight)
 
@@ -244,12 +251,17 @@ try:
                 spin_right(35, 35)
                 time.sleep(0.002)
                 run(100, 100)
+
                 GPIO.output(LED_R, GPIO.LOW)
                 GPIO.output(LED_G, GPIO.HIGH)
                 GPIO.output(LED_B, GPIO.LOW)
+
         elif 30 <= distance <= 50:
-            # There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
-            # There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH
+
+        ''' 
+            There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
+            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH 
+        '''
             LeftSensorValue = GPIO.input(AvoidSensorLeft)
             RightSensorValue = GPIO.input(AvoidSensorRight)
 
@@ -265,6 +277,7 @@ try:
                 spin_right(35, 35)
                 time.sleep(0.002)
                 run(50, 50)
+
         elif distance < 30:
             servo_color_carstate()
 
