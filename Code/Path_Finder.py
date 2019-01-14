@@ -166,14 +166,14 @@ def Distance_test():
     return ((t2 - t1) * 340 / 2) * 100
 
 
-# The servo rotates to the specified angle
+'The servo rotates to the specified angle'
 def servo_appointed_detection(pos):
     for i in range(18):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
 
 def servo_color_carstate():
-    # red
+    'RED LIGHT'
     GPIO.output(LED_R, GPIO.HIGH)
     GPIO.output(LED_G, GPIO.LOW)
     GPIO.output(LED_B, GPIO.LOW)
@@ -193,22 +193,24 @@ def servo_color_carstate():
     time.sleep(0.8)
     frontdistance = Distance_test()
 
+
     if leftdistance < 30 and rightdistance < 30 and frontdistance < 30:
-        # Magenta
+        'Magenta'
         GPIO.output(LED_R, GPIO.HIGH)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
         spin_right(35, 35)
         time.sleep(0.58)
+
     elif leftdistance >= rightdistance:
-        # Blue
+        'Blue'
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
         spin_left(35, 35)
         time.sleep(0.28)
     elif leftdistance <= rightdistance:
-        # Magenta
+        'Magenta'
         GPIO.output(LED_R, GPIO.HIGH)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
