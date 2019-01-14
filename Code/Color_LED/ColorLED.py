@@ -16,7 +16,7 @@ GPIO.setup(LED_R, GPIO.OUT)
 GPIO.setup(LED_G, GPIO.OUT)
 GPIO.setup(LED_B, GPIO.OUT)
 
-#Display 7 color LED
+#Display 2 #7 color LED
 try:
     while True:
         GPIO.output(LED_R, GPIO.HIGH)
