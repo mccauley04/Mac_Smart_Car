@@ -44,11 +44,19 @@ try:
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.LOW)
         time.sleep(0.25)
+
+        servo_appointed_detection(0)
+        time.sleep(0.8)
+
         # Green for 1 Second
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.HIGH)
         GPIO.output(LED_B, GPIO.LOW)
         time.sleep(0.25)
+
+        servo_appointed_detection(90)
+        time.sleep(0.8)
+
         # Blue for 1 Second
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.LOW)
