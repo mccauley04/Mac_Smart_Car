@@ -128,7 +128,10 @@ def servo_color_carstate():
 
 
 try:
+    init()
+    key_scan()
     while True:
+        distance = Distance_test()
 
 
     servo_color_carstate()
