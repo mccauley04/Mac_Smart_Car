@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 
-# Definition of  motor pins
+'Definition of  motor pins'
 IN1 = 20
 IN2 = 21
 IN3 = 19
@@ -10,36 +10,36 @@ IN4 = 26
 ENA = 16
 ENB = 13
 
-# Definition of  key
+'Definition of  key'
 key = 8
 
-# Definition of  ultrasonic module pins
+'Definition of  ultrasonic module pins'
 EchoPin = 0
 TrigPin = 1
 
-# Definition of RGB module pins
+'Definition of RGB module pins'
 LED_R = 22
 LED_G = 27
 LED_B = 24
 
-# Definition of servo pin
+'Definition of servo pin'
 ServoPin = 23
 
-# Definition of infrared obstacle avoidance module pins
+'Definition of infrared obstacle avoidance module pins'
 AvoidSensorLeft = 12
 AvoidSensorRight = 17
 
-# Set the GPIO port to BCM encoding mode
+'Set the GPIO port to BCM encoding mode'
 GPIO.setmode(GPIO.BCM)
 
-# Ignore warning information
+'Ignore warning information'
 GPIO.setwarnings(False)
 
 
-# Motor pins are initialized into output mode
-# Key pin is initialized into input mode
-# Ultrasonic pin,RGB pin,servo pin initialization
-# infrared obstacle avoidance module pin
+'Motor pins are initialized into output mode'
+'Key pin is initialized into input mode'
+'Ultrasonic pin,RGB pin,servo pin initialization'
+'infrared obstacle avoidance module pin'
 def pre_checks():
     global pwm_ENA
     global pwm_ENB
@@ -59,7 +59,7 @@ def pre_checks():
     GPIO.setup(ServoPin, GPIO.OUT)
     GPIO.setup(AvoidSensorLeft, GPIO.IN)
     GPIO.setup(AvoidSensorRight, GPIO.IN)
-    # Set the PWM pin and frequency is 2000hz
+    'Set the PWM pin and frequency is 2000hz'
     pwm_ENA = GPIO.PWM(ENA, 2000)
     pwm_ENB = GPIO.PWM(ENB, 2000)
     pwm_ENA.start(0)
@@ -69,7 +69,7 @@ def pre_checks():
     pwm_servo.start(0)
 
 
-# advance
+'Advance'
 def run(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.LOW)
@@ -79,7 +79,7 @@ def run(leftspeed, rightspeed):
     pwm_ENB.ChangeDutyCycle(rightspeed)
 
 
-# back
+'Back'
 def back(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
@@ -89,7 +89,7 @@ def back(leftspeed, rightspeed):
     pwm_ENB.ChangeDutyCycle(rightspeed)
 
 
-# turn left
+'Turn left'
 def left(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
@@ -99,7 +99,7 @@ def left(leftspeed, rightspeed):
     pwm_ENB.ChangeDutyCycle(rightspeed)
 
 
-# trun right
+'Turn right'
 def right(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.LOW)
@@ -109,7 +109,7 @@ def right(leftspeed, rightspeed):
     pwm_ENB.ChangeDutyCycle(rightspeed)
 
 
-# turn left in place
+'Turn left in place'
 def spin_left(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.HIGH)
@@ -119,7 +119,7 @@ def spin_left(leftspeed, rightspeed):
     pwm_ENB.ChangeDutyCycle(rightspeed)
 
 
-# turn right in place
+'Turn right in place'
 def spin_right(leftspeed, rightspeed):
     GPIO.output(IN1, GPIO.HIGH)
     GPIO.output(IN2, GPIO.LOW)
@@ -129,15 +129,14 @@ def spin_right(leftspeed, rightspeed):
     pwm_ENB.ChangeDutyCycle(rightspeed)
 
 
-# brake
+'Break'
 def brake():
     GPIO.output(IN1, GPIO.LOW)
     GPIO.output(IN2, GPIO.LOW)
     GPIO.output(IN3, GPIO.LOW)
     GPIO.output(IN4, GPIO.LOW)
 
-
-# Button detection
+'Button detection'
 def key_scan():
     while GPIO.input(key):
         pass
@@ -149,7 +148,7 @@ def key_scan():
                 pass
 
 
-# Ultrasonic function
+'Ultrasonic function'
 def Distance_test():
     GPIO.output(TrigPin, GPIO.HIGH)
     time.sleep(0.000015)
