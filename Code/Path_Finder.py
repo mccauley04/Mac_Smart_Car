@@ -232,6 +232,7 @@ def servo_color_carstate():
 
     lside_distance = scan_distance_150 + scan_distance_180
     print(lside_distance)
+
     ldistance = lside_distance + lmiddle_distance
     print(ldistance)
 
