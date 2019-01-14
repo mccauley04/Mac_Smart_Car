@@ -229,50 +229,46 @@ def servo_color_carstate():
 
     if lside_distance < 35 and lmiddle_distance < 35 and rmiddle_distance < 35 and rside_distance < 35:
 
-    'if leftdistance < 30 and rightdistance < 30 and frontdistance < 30:'
+    # if leftdistance < 30 and rightdistance < 30 and frontdistance < 30: 'Magenta'
+        GPIO.output(LED_R, GPIO.HIGH)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
 
-    'Magenta'
-    GPIO.output(LED_R, GPIO.HIGH)
-    GPIO.output(LED_G, GPIO.LOW)
-    GPIO.output(LED_B, GPIO.HIGH)
+        'Slowly move back at tad and do a 180'
+        back(10, 10)
+        time.sleep(.58)
 
-    'Slowly move back at tad and do a 180'
-    back(10, 10)
-    time.sleep(.58)
-
-    spin_right(25, 25)
-    time.sleep(0.58)
+        spin_right(25, 25)
+        time.sleep(0.58)
 
     elif lside_distance >= lmiddle_distance:
 
-    'elif leftdistance >= rightdistance:'
-        'Blue'
-    GPIO.output(LED_R, GPIO.LOW)
-    GPIO.output(LED_G, GPIO.LOW)
-    GPIO.output(LED_B, GPIO.HIGH)
-    spin_left(25, 25) '35,35'
-    time.sleep(0.28)
+        # elif leftdistance >= rightdistance: 'Blue'
+        GPIO.output(LED_R, GPIO.LOW)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
+        spin_left(25, 25) #35,35
+        time.sleep(0.28)
 
     elif lmiddle_distance >= rmiddle_distance:
 
-    'elif leftdistance <= rightdistance:'
+    # elif leftdistance <= rightdistance:
         'Blue'
-    GPIO.output(LED_R, GPIO.Low)
-    GPIO.output(LED_G, GPIO.LOW)
-    GPIO.output(LED_B, GPIO.HIGH)
-    spin_left(25, 25)
-    '35,35'
-    time.sleep(0.28)
+        GPIO.output(LED_R, GPIO.Low)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
+        spin_left(25, 25) #35,35
+        time.sleep(0.28)
 
     elif rmiddle_distance >= rside_distance:
 
-    'elif leftdistance <= rightdistance:'
-    'Blue'
-    GPIO.output(LED_R, GPIO.Low)
-    GPIO.output(LED_G, GPIO.LOW)
-    GPIO.output(LED_B, GPIO.HIGH)
-    spin_right(25, 25) '35,35'
-    time.sleep(0.28)
+        # elif leftdistance <= rightdistance:
+        'Blue'
+        GPIO.output(LED_R, GPIO.Low)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.HIGH)
+        spin_right(25, 25) #35,35
+        time.sleep(0.28)
 
 
 # delay 2s
