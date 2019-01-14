@@ -51,7 +51,7 @@ try:
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.HIGH)
         GPIO.output(LED_B, GPIO.LOW)
-        servo_appointed_detection(180)
+        servo_appointed_detection(33)
         time.sleep(1)
 
 
@@ -59,7 +59,21 @@ try:
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
-        servo_appointed_detection(90)
+        servo_appointed_detection(66)
+        time.sleep(1)
+
+        # Red for 1 Second
+        GPIO.output(LED_R, GPIO.HIGH)
+        GPIO.output(LED_G, GPIO.LOW)
+        GPIO.output(LED_B, GPIO.LOW)
+        servo_appointed_detection(99)
+        time.sleep(1)
+
+        # Green for 1 Second
+        GPIO.output(LED_R, GPIO.LOW)
+        GPIO.output(LED_G, GPIO.HIGH)
+        GPIO.output(LED_B, GPIO.LOW)
+        servo_appointed_detection(132)
         time.sleep(1)
 
 except:
