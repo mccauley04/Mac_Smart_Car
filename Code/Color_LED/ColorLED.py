@@ -4,9 +4,9 @@ import RPi.GPIO as GPIO
 import time
 
 #Definition of RGB module pin
-LED_R = 23
-LED_G = 26
-LED_B = 24
+LED_R = 122  #22
+LED_G = 127  #27
+LED_B = 124  #24
 
 #Set the GPIO port to BCM encoding mode.
 GPIO.setmode(GPIO.BCM)
