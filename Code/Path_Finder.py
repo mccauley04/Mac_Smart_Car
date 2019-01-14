@@ -186,7 +186,6 @@ def servo_color_carstate():
 
     servo_appointed_detection(0)
     time.sleep(0.25)
-    'First line of code had a time.sleep state of 0.8'
     scan_distance_0 = Distance_test()
 
     servo_appointed_detection(30)
@@ -215,6 +214,7 @@ def servo_color_carstate():
     scan_distance_120 = Distance_test()
 
     lmiddle_distance = scan_distance_90 + scan_distance_120
+    print(lmiddle_distance)
 
     servo_appointed_detection(150)
     time.sleep(0.25)
