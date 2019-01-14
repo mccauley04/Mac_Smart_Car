@@ -187,31 +187,35 @@ def servo_color_carstate():
     servo_appointed_detection(0)
     time.sleep(0.25)
     scan_distance_0 = Distance_test()
+    print(scan_distance_0)
 
     servo_appointed_detection(30)
     time.sleep(0.25)
     scan_distance_30 = Distance_test()
+    print(scan_distance_30)
 
     rside_distance = scan_distance_0 + scan_distance_30
+    print(rside_distance)
 
     servo_appointed_detection(60)
     time.sleep(0.25)
     scan_distance_60 = Distance_test()
+    print(scan_distance_60)
 
     servo_appointed_detection(90)
     time.sleep(0.25)
     scan_distance_90 = Distance_test()
+    print(scan_distance_90)
 
     rmiddle_distance = scan_distance_60 + scan_distance_90
+    print(rmiddle_distance)
     rdistance = rmiddle_distance + rside_distance
-
-    servo_appointed_detection(90)
-    time.sleep(0.25)
-    scan_distance_90 = Distance_test()
+    print(rdistance)
 
     servo_appointed_detection(120)
     time.sleep(0.25)
     scan_distance_120 = Distance_test()
+    print(scan_distance_120)
 
     lmiddle_distance = scan_distance_90 + scan_distance_120
     print(lmiddle_distance)
@@ -219,13 +223,17 @@ def servo_color_carstate():
     servo_appointed_detection(150)
     time.sleep(0.25)
     scan_distance_150 = Distance_test()
+    print(scan_distance_150)
 
     servo_appointed_detection(180)
     time.sleep(0.25)
     scan_distance_180 = Distance_test()
+    print(scan_distance_180)
 
     lside_distance = scan_distance_150 + scan_distance_180
+    print(lside_distance)
     ldistance = lside_distance + lmiddle_distance
+    print(ldistance)
 
     if ldistance < 35 and rdistance < 35:
 
@@ -250,7 +258,7 @@ def servo_color_carstate():
 
     # elif leftdistance <= rightdistance:
         'Blue'
-        GPIO.output(LED_R, GPIO.Low)
+        GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
         spin_left(25, 25) #35,35
