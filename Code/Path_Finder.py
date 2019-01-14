@@ -227,16 +227,12 @@ def servo_color_carstate():
     lside_distance = scan_distance_150 + scan_distance_180
     ldistance = lside_distance + lmiddle_distance
 
-    if lside_distance < 35 and lmiddle_distance < 35 and rmiddle_distance < 35 and rside_distance < 35:
+    if ldistance < 35 and rdistance < 35:
 
     # if leftdistance < 30 and rightdistance < 30 and frontdistance < 30: 'Magenta'
         GPIO.output(LED_R, GPIO.HIGH)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
-
-        'Slowly move back at tad and do a 180'
-        back(10, 10)
-        time.sleep(.58)
 
         spin_right(25, 25)
         time.sleep(0.58)
