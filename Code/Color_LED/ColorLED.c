@@ -28,11 +28,11 @@ int main()
 	
 	while (1)
 	{                        //   LED_R   LED_G    LED_B
-    color_led(ON, OFF, OFF); //   1        0        0
+    color_led(ON, OFF, OFF); //   0        0        0
     delay(1000);
-    color_led(OFF, ON, OFF); //   0        1        0
+    color_led(OFF, ON, OFF); //   0        0        0
     delay(1000);
-    color_led(OFF, OFF, ON); //   0        0        1
+    color_led(OFF, OFF, ON); //   0        0        0
     delay(1000);
     color_led(ON, ON, OFF);  //   1        1        0
     delay(1000);
