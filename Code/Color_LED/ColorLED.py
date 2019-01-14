@@ -12,9 +12,28 @@ LED_B = 24
 GPIO.setmode(GPIO.BCM)
 
 #RGB pins are initialized into output mode
+global pwm_ENA
+global pwm_ENB
+global pwm_servo
 GPIO.setup(LED_R, GPIO.OUT)
 GPIO.setup(LED_G, GPIO.OUT)
 GPIO.setup(LED_B, GPIO.OUT)
+GPIO.setup(ServoPin, GPIO.OUT)
+pwm_servo = GPIO.PWM(ServoPin, 50)
+pwm_servo.start(0)
+
+#Definition of Ultrasonic Module Pins
+EchoPin = 0
+TrigPin = 1
+
+#Definition of servo pin
+ServoPin = 23
+
+#The servo rotates to the specified angle
+def servo_appointed_detection(pos):
+    for i in range(18):
+        pwm_servo.ChangeDutyCycle(2.5 + 10 * pos/180)
+
 
 #Display 7 color LED
 try:
@@ -37,4 +56,6 @@ try:
 
 except:
     print "except"
+
+
 GPIO.cleanup()
