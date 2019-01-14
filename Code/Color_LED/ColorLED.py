@@ -4,9 +4,9 @@ import RPi.GPIO as GPIO
 import time
 
 #Definition of RGB module pin
-LED_R = 22  #22
-LED_G = 27  #27
-LED_B = 24  #24
+LED_R = 3  #22
+LED_G = 44  #27
+LED_B = 12  #24
 
 #Set the GPIO port to BCM encoding mode.
 GPIO.setmode(GPIO.BCM)
@@ -21,13 +21,15 @@ try:
     while True:
         GPIO.output(LED_R, GPIO.HIGH)
         GPIO.output(LED_G, GPIO.LOW)
-        GPIO.output(LED_B, GPIO.LOW)
-        time.sleep(1)
+        GPIO.output(LED_B, GPIO.HIGH)
+        time.sleep(2)
+
+        '''
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.HIGH)
         GPIO.output(LED_B, GPIO.LOW)
         time.sleep(1)
-        '''
+        
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
