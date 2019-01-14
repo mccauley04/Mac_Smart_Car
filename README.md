@@ -11,5 +11,9 @@
 - 4 Channel Tracking
 - Battery [Working Time >120 Minutes]
 
-Goal: Creating a Rover that can be placed within a maze that can navigate it's self out after use starts car with K2 Button. 
+Goal: 
+Creating Rover_1 that will:
+  1. Self Navigate out of a Maze
+   1a. Cannot have a pre-programmed path 
+   1b. Only user input is pressing the K2 Button to start the car.
 
