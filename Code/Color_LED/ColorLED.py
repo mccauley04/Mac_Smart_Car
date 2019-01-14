@@ -23,17 +23,17 @@ try:
         GPIO.output(LED_R, GPIO.HIGH)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.LOW)
-        time.sleep(1)
+        time.sleep(0.5)
         # Green for 1 Second
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.HIGH)
         GPIO.output(LED_B, GPIO.LOW)
-        time.sleep(1)
+        time.sleep(0.5)
         # Blue for 1 Second
         GPIO.output(LED_R, GPIO.LOW)
         GPIO.output(LED_G, GPIO.LOW)
         GPIO.output(LED_B, GPIO.HIGH)
-        time.sleep(1)
+        time.sleep(0.5)
 
 except:
     print "except"
