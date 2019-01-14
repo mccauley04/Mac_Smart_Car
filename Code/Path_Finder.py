@@ -219,10 +219,9 @@ def servo_color_carstate():
 # delay 2s
 time.sleep(2)
 
-'''
-The try/except statement is used to detect errors in the try block.
-The except statement catches the exception information and processes it.
-'''
+'''The try/except statement is used to detect errors in the try block.
+The except statement catches the exception information and processes it.'''
+
 
 try:
     pre_checks()
@@ -231,10 +230,9 @@ try:
         distance = Distance_test()
         if distance > 50:
 
-        ''' 
-            There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
-            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH
-        '''
+        '''There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
+            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH'''
+
 
             LeftSensorValue = GPIO.input(AvoidSensorLeft)
             RightSensorValue = GPIO.input(AvoidSensorRight)
@@ -258,10 +256,9 @@ try:
 
         elif 30 <= distance <= 50:
 
-        ''' 
-            There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
-            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH 
-        '''
+        '''There is obstacle, the indicator light of the infrared obstacle avoidance module is on, and the port level is LOW
+            There is no obstacle, the indicator light of the infrared obstacle avoidance module is off, and the port level is HIGH'''
+
             LeftSensorValue = GPIO.input(AvoidSensorLeft)
             RightSensorValue = GPIO.input(AvoidSensorRight)
 
