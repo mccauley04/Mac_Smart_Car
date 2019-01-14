@@ -43,7 +43,7 @@ Ultrasonic pin,RGB pin,servo pin initialization
 Infrared obstacle avoidance module pin
 '''
 
-def init():
+def pre_check():
     global pwm_ENA
     global pwm_ENB
     global pwm_servo
@@ -62,16 +62,16 @@ def init():
     GPIO.setup(ServoPin, GPIO.OUT)
     GPIO.setup(AvoidSensorLeft,GPIO.IN)
     GPIO.setup(AvoidSensorRight,GPIO.IN)
-    #Set the PWM pin and frequency is 2000hz
+    '''Set the PWM pin and frequency is 2000hz'''
     pwm_ENA = GPIO.PWM(ENA, 2000)
     pwm_ENB = GPIO.PWM(ENB, 2000)
     pwm_ENA.start(0)
     pwm_ENB.start(0)
 
-    pwm_servo = GPIO.PWM(ServoPin, 50)
-    pwm_servo.start(0)
+pwm_servo = GPIO.PWM(ServoPin, 50)
+pwm_servo.start(0)
 
-#Button detection
+''' Button detection '''
 def key_scan():
     while GPIO.input(key):
         pass
@@ -81,3 +81,53 @@ def key_scan():
             time.sleep(0.01)
             while not GPIO.input(key):
 	        pass
+
+
+''' Ultrasonic function '''
+def Distance_test():
+    GPIO.output(TrigPin, GPIO.HIGH)
+    time.sleep(0.000015)
+    GPIO.output(TrigPin, GPIO.LOW)
+    while not GPIO.input(EchoPin):
+        pass
+    t1 = time.time()
+    while GPIO.input(EchoPin):
+        pass
+    t2 = time.time()
+    print
+    "distance is %d " % (((t2 - t1) * 340 / 2) * 100)
+    time.sleep(0.01)
+    return ((t2 - t1) * 340 / 2) * 100
+
+'''The servo rotates to the specified angle'''
+def servo_appointed_detection(pos):
+    for i in range(18):
+        pwm_servo.ChangeDutyCycle(2.5 + 10 * pos/180)
+
+
+def servo_color_carstate():
+    ''' RED LIGHT '''
+    GPIO.output(LED_R, GPIO.HIGH)
+    GPIO.output(LED_G, GPIO.LOW)
+    GPIO.output(LED_B, GPIO.LOW)
+    back(20, 20)
+    time.sleep(0.08)
+    brake()
+
+    servo_appointed_detection(0)
+    time.sleep(0.8)
+    rightdistance = Distance_test()
+
+    servo_appointed_detection(180)
+    time.sleep(0.8)
+    leftdistance = Distance_test()
+
+    servo_appointed_detection(90)
+    time.sleep(0.8)
+    frontdistance = Distance_test()
+
+
+try:
+    pre_check()
+    key_scan()
+    servo_color_carstate()
