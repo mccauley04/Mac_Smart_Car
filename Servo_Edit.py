@@ -20,6 +20,7 @@ Causes the loop to skip the remainder of its body and immediately retest its con
 3	pass statement
 The pass statement in Python is used when a statement is required syntactically but you do not want any command or code to execute.
 
+for loop should skip the repetive code
 
 
 while (distance_test() < 30):
