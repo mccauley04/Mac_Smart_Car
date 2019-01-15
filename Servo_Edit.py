@@ -1,3 +1,39 @@
+create a loop statement
+
+Loop Type & Description
+1	while loop
+Repeats a statement or group of statements while a given condition is TRUE. It tests the condition before executing the loop body.
+
+2	for loop
+Executes a sequence of statements multiple times and abbreviates the code that manages the loop variable.
+
+3	nested loops
+You can use one or more loop inside any another while, for or do..while loop.
+
+Control Statement & Description
+1	break statement
+Terminates the loop statement and transfers execution to the statement immediately following the loop.
+
+2	continue statement
+Causes the loop to skip the remainder of its body and immediately retest its condition prior to reiterating.
+
+3	pass statement
+The pass statement in Python is used when a statement is required syntactically but you do not want any command or code to execute.
+
+
+
+while (distance_test() < 30):
+   GPIO.output(LED_R, GPIO.HIGH)
+   GPIO.output(LED_G, GPIO.LOW)
+   GPIO.output(LED_B, GPIO.LOW)
+   brake()
+   print 'The count is:', count
+   count = count + 1
+
+print "Good bye!"
+
+
+
 def servo_color_carstate():
 
     'RED LIGHT'
@@ -23,7 +59,9 @@ def servo_color_carstate():
        
     servo_appointed_detection(60)
     time.sleep(0.25)
-    scan_distance_60 = Distance_test()
+    scan_distance_
+    
+60 = Distance_test()
     
     servo_appointed_detection(90)
     time.sleep(0.25)
