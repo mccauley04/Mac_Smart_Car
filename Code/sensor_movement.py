@@ -87,13 +87,29 @@ def servo_appointed_detection(pos):
     for i in range(18):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
-servo_appointed_detection(0)
+def servo_color_carstate():
+    'RED LIGHT'
+    GPIO.output(LED_R, GPIO.HIGH)
+    GPIO.output(LED_G, GPIO.LOW)
+    GPIO.output(LED_B, GPIO.LOW)
+
+    time.sleep(0.08)
+
     time.sleep(0.25)
     scan_distance_0 = Distance_test()
     print(scan_distance_0)
 
+    servo_appointed_detection(30)
+    time.sleep(0.25)
+    scan_distance_30 = Distance_test()
+    print(scan_distance_30)
 
+try:
+    pre_checks()
+    servo_color_carstate()
 
+except KeyboardInterrupt:
+    pass
 
 pwm_ENA.stop()
 pwm_ENB.stop()
