@@ -93,16 +93,13 @@ def servo_color_carstate():
     GPIO.output(LED_G, GPIO.LOW)
     GPIO.output(LED_B, GPIO.LOW)
 
-    time.sleep(0.08)
+    angles = [0, 30, 60, 90, 120, 150, 180]
 
-    time.sleep(0.25)
-    scan_distance_0 = Distance_test()
-    print(scan_distance_0)
+    for index in range(angles):
+        servo_appointed_detection(angles[index])
 
-    servo_appointed_detection(30)
-    time.sleep(0.25)
-    scan_distance_30 = Distance_test()
-    print(scan_distance_30)
+
+
 
 try:
     pre_checks()
