@@ -95,7 +95,7 @@ def servo_color_carstate():
 
     angles = [0, 30, 60, 90, 120, 150, 180]
 
-    for index in range(angles):
+    for index in range(7):
         servo_appointed_detection(angles[index])
         time.sleep(0.50)
         scan_distance_0 = Distance_test()
