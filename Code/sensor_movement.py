@@ -87,22 +87,12 @@ def servo_appointed_detection(pos):
     for i in range(18):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
-angles = [0,30,60,90,120,150,180]
+servo_appointed_detection(0)
+    time.sleep(0.25)
+    scan_distance_0 = Distance_test()
+    print(scan_distance_0)
 
-for angle in angles:
-    if distance_test < 35:
-        # 'RED LIGHT'
-        # GPIO.output(LED_R, GPIO.HIGH)
-        # GPIO.output(LED_G, GPIO.LOW)
-        # GPIO.output(LED_B, GPIO.LOW)
 
-        servo_direction(angle)
-        # wait time
-        distance_test(angle)
-
-        print(distance_test)
-        print(angle)
-        print(servo_direction)
 
 
 pwm_ENA.stop()
