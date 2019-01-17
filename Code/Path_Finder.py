@@ -120,6 +120,7 @@ def decision_time():
     print('Left side avg: ',np.average(scan_lside))
     print('Left side max: ', np.argmax(scan_dl[3:6]))
 
+#Maybe a while statement and then branch off from that once certian criteria is hit
 
     if scan_front < 50:
         print('Slowly Keep Moving Forward')
