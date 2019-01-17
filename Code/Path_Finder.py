@@ -115,7 +115,7 @@ def servo_color_carstate():
 def decision_time():
     'YELLOW'
 
-    scan_rside = scan_dl.index[0,1,2,3]
+    scan_rside = [scan_dl[0:3]]
     scan_lside = [scan_dl[3], scan_dl[4], scan_dl[5], scan_dl[6]]
 
     print(np.argmax(scan_dl))
