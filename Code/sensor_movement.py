@@ -111,8 +111,8 @@ def servo_color_carstate():
 def decision_time():
     'YELLOW'
 
-    print(scan_dl[0])
-    print(scan_dl[1])
+    print(scan_dl[0]+scan_dl[1]+scan_dl[2]+scan_dl[3])
+
 
 
 try:
