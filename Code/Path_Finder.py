@@ -117,12 +117,14 @@ def decision_time():
 
     #check
 
-    right_side = [scan_dl[0], scan_dl[1], scan_dl[2], scan_dl[3]]
-    left_side = scan_dl[3] + scan_dl[4] + scan_dl[5] + scan_dl[6]
+    scan_rside = [scan_dl[0], scan_dl[1], scan_dl[2], scan_dl[3]]
+    scan_lside = [scan_dl[3], scan_dl[4], scan_dl[5], scan_dl[6]]
 
     print(np.argmax(scan_dl))
-    print(np.argmax(right_side))
-    print(np.average(right_side))
+    print('Right side max',np.argmax(scan_rside))
+    print("Right side avg: ", np.average(scan_rside))
+    print('Left side avg: ',np.average(scan_lside))
+    print('Left side max: ', np.argmax(scan_lside))
 
 try:
     pre_checks()
