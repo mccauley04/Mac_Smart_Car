@@ -120,7 +120,7 @@ def decision_time():
     right_side = scan_dl[0] + scan_dl[1] + scan_dl[2] + scan_dl[3]
     left_side = scan_dl[3] + scan_dl[4] + scan_dl[5] + scan_dl[6]
 
-    print(np.max(scan_dl1))
+    print(np.max(scan_dl))
 
         #hard right turn
 
