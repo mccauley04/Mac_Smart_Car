@@ -120,10 +120,13 @@ def decision_time():
     print('Left side avg: ',np.average(scan_lside))
     print('Left side max: ', np.argmax(scan_dl[3:6]))
 
-    if scan_lside > scan_rside:
-        print("Left Turn Needed, Turn Factor of: ", np.argmax(scan_dl[3:6]))
+
+    if scan_front > 100:
+        print('Keep Moving Forward')
+    elif scan_lside > scan_rside:
+        print("Left Turn Needed, Turn Factor of: ", np.argmax(scan_lside))
     elif scan_rside > scan_lside:
-        print('Right Turn Needed, Turn Factor of: ', np.argmax(scan_dl[0:3]))
+        print('Right Turn Needed, Turn Factor of: ', np.argmax(scan_rside))
 
     #if left side average is higher then we pick the turning degree on the left side
 
