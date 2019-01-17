@@ -118,7 +118,8 @@ def decision_time():
     print(right_side)
     print(left_side)
 
-    if right_side > left_side:
+
+
 
 
 try:
