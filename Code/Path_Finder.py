@@ -118,8 +118,10 @@ def decision_time():
     print('Right side max: ',np.argmax(scan_dl[0:3]))
     print('Right side avg: ', np.average(scan_rside))
     print('Left side avg: ',np.average(scan_lside))
-    print('Left side max: ', np.argmax(int(scan_dl[3:6])+3))
+    print('Left side max: ', np.argmax(scan_dl[3:6]))
 
+    if scan_lside > scan_rside:
+        print("Left Turn Needed, Turn Factor of: ", np.argmax(scan_dl[3:6]))
     #if left side average is higher then we pick the turning degree on the left side
 
     #trouble thinking how to always scan at the 90 degree // front angle // or get the robot to turn towards the highest angle
