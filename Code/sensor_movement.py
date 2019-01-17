@@ -87,14 +87,16 @@ def servo_appointed_detection(pos):
     for i in range(18):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
+angles = [0, 30, 60, 90, 120, 150, 180, 90]
+scan_distance_list = []
+
+
 def servo_color_carstate():
     'RED LIGHT'
     GPIO.output(LED_R, GPIO.HIGH)
     GPIO.output(LED_G, GPIO.LOW)
     GPIO.output(LED_B, GPIO.LOW)
 
-    angles = [0, 30, 60, 90, 120, 150, 180, 90]
-    scan_distance_list = []
 
     for index in range(8):
 
