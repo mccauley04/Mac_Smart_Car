@@ -100,8 +100,8 @@ def servo_color_carstate():
         servo_appointed_detection(angles[index])
         time.sleep(1)
 
-        scan_distance_list.append((Distance_test()))
-        print(float("{:.2f}".format(scan_distance_list)))
+        scan_distance_list.append((Distance_test().format("{:.2f}")))
+        print(scan_distance_list)
 
 
 
