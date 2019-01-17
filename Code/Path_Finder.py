@@ -115,7 +115,7 @@ def servo_color_carstate():
 def decision_time():
     'YELLOW'
 
-    print(np.max(scan_dl))
+    print(np.argmax(scan_dl))
 
 
 
