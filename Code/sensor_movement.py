@@ -93,10 +93,10 @@ def servo_color_carstate():
     GPIO.output(LED_G, GPIO.LOW)
     GPIO.output(LED_B, GPIO.LOW)
 
-    angles = [0, 30, 60, 90, 120, 150, 180]
+    angles = [0, 30, 60, 90, 120, 150, 180, 90]
     scan_distance_list = []
 
-    for index in range(7):
+    for index in range(8):
         servo_appointed_detection(angles[index])
         time.sleep(0.50)
 
