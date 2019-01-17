@@ -104,18 +104,19 @@ def servo_color_carstate():
         scan_distance_list.append(str(round(Distance_test(),2)))
         print(scan_distance_list)
 
-        print(scan_distance_list[0])
-        print(scan_distance_list[1])
+
 
 def decision_time():
     'YELLOW'
 
-    scan_distance_list[0]
+    print(scan_distance_list[0])
+    print(scan_distance_list[1])
 
 
 try:
     pre_checks()
     servo_color_carstate()
+    decision_time()
 
 except KeyboardInterrupt:
     pass
