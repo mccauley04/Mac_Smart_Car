@@ -122,6 +122,8 @@ def decision_time():
 
 #Maybe a while statement and then branch off from that once certian criteria is hit
 
+
+
     if scan_front < 50:
         print('Slowly Keep Moving Forward')
     elif scan_front > 200:
