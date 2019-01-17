@@ -127,7 +127,7 @@ def decision_time():
     #Right side
 
 
-    test1 = [n for n, i in enumerate(scan_dl[0]) if i > scan_dl][0]
+    test1 = [n for n, i in enumerate(scan_dl) if i > scan_dl[0]][0]
     print(test1)
 
 try:
