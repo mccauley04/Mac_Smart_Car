@@ -97,15 +97,20 @@ def servo_color_carstate():
     scan_distance_list = []
 
     for index in range(8):
+
         servo_appointed_detection(angles[index])
-        time.sleep(.5)
+        time.sleep(.4)
 
         scan_distance_list.append(str(round(Distance_test(),2)))
         print(scan_distance_list)
 
+        print(scan_distance_list[0])
+        print(scan_distance_list[1])
 
+def decision_time():
+    'YELLOW'
 
-
+    scan_distance_list[0]
 
 
 try:
