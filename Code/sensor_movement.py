@@ -101,7 +101,7 @@ def servo_color_carstate():
         time.sleep(1)
 
         scan_distance_list.append(str(Distance_test()))
-        print(scan_distance_list.format('%.2f'))
+        print(float("{:.2f}".format(scan_distance_list)))
 
 
 
