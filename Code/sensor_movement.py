@@ -88,7 +88,7 @@ def servo_appointed_detection(pos):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
 angles = [0, 30, 60, 90, 120, 150, 180, 90]
-scan_distance_list = []
+scan_dl = []
 
 
 def servo_color_carstate():
@@ -103,16 +103,16 @@ def servo_color_carstate():
         servo_appointed_detection(angles[index])
         time.sleep(.4)
 
-        scan_distance_list.append(str(round(Distance_test(),2)))
-        print(scan_distance_list)
+        scan_dl.append(str(round(Distance_test(),2)))
+        print(scan_dl)
 
 
 
 def decision_time():
     'YELLOW'
 
-    print(scan_distance_list[0])
-    print(scan_distance_list[1])
+    print(scan_dl[0])
+    print(scan_dl[1])
 
 
 try:
