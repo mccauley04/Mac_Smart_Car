@@ -1,6 +1,10 @@
-distance = 25
 
-while distance < 120 :
-    print("Hello World")
 
-    distance = distance + 30
+
+alist= [0.5, 0.3, 0.9, 0.8]
+
+print([ n for n,i in enumerate(alist) if i>0.7 ][0])
+
+angles = [0, 30, 60, 90, 120, 150, 180, 90]
+
+print([ n for n,i in enumerate(angles) if i> 0 ][0])

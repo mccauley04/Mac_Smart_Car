@@ -114,15 +114,21 @@ def servo_color_carstate():
 def decision_time():
     'YELLOW'
 
+    #check
+
     right_side = scan_dl[0] + scan_dl[1] + scan_dl[2] + scan_dl[3]
     left_side = scan_dl[3] + scan_dl[4] + scan_dl[5] + scan_dl[6]
 
     print(right_side)
     print(left_side)
 
+    #If i line everything up I could ideally define a certian degree of a turn.
+
+    #Right side
 
 
-
+    test1 = [n for n, i in enumerate(scan_dl[0]) if i > scan_dl][0]
+    print(test1)
 
 try:
     pre_checks()
