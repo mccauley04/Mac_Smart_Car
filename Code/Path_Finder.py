@@ -121,8 +121,11 @@ def decision_time():
     print('Left side max: ', np.argmax(scan_dl[3:6]))
 
 
-    if scan_front < 100:
-        print('Keep Moving Forward')
+    if scan_front < 50:
+        print('Slowly Keep Moving Forward')
+    elif scan_front > 200:
+        print('Full Speed ahead')
+
     elif scan_lside > scan_rside:
         print("Left Turn Needed, Turn Factor of: ", np.argmax(scan_lside))
     elif scan_rside > scan_lside:
