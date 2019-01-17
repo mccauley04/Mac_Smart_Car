@@ -125,6 +125,8 @@ def decision_time():
     #If i line everything up I could ideally define a certian degree of a turn.
 
     #Right side
+    
+    #Can i search for a max value yo fogure out the best way decide on which way to turn?
 
 
     test1 = [n for n, i in enumerate(scan_dl) if i > scan_dl[0]][0]
