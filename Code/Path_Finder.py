@@ -115,12 +115,14 @@ def servo_color_carstate():
 def decision_time():
     'YELLOW'
 
+    #check
+
+    right_side = [scan_dl[0], scan_dl[1], scan_dl[2], scan_dl[3]]
+    left_side = scan_dl[3] + scan_dl[4] + scan_dl[5] + scan_dl[6]
+
     print(np.argmax(scan_dl))
-
-
-
-    test1 = [n for n, i in enumerate(scan_dl) if i > scan_dl[0]][0]
-    print(test1)
+    print(np.argmax(right_side))
+    print(np.average(right_side))
 
 try:
     pre_checks()
