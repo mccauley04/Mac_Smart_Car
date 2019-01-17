@@ -118,7 +118,7 @@ def decision_time():
     print('Right side max: ',np.argmax(scan_dl[0:3]))
     print('Right side avg: ', np.average(scan_rside))
     print('Left side avg: ',np.average(scan_lside))
-    print('Left side max: ', np.argmax(scan_dl[3:6]))
+    print('Left side max: ', np.argmax(scan_dl[3:6]+3))
 
     #if left side average is higher then we pick the turning degree on the left side
 
