@@ -91,9 +91,7 @@ def servo_appointed_detection(pos):
     for i in range(18):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
-
 scan_dl = []
-scan_dl1 = np.array(scan_dl)
 
 def servo_color_carstate():
     'RED LIGHT'
@@ -110,7 +108,6 @@ def servo_color_carstate():
         scan_dl.append(int(round(Distance_test(), 2)))
         print(scan_dl)
 
-
 def decision_time():
     'YELLOW'
 
@@ -118,11 +115,10 @@ def decision_time():
     scan_lside = [scan_dl[3:6]]
     scan_front = [scan_dl[7]]
 
-    print(np.argmax(scan_dl))
-    print('Right side max: ',np.argmax(scan_rside))
+    print('Right side max: ',np.argmax(scan_dl[0:3]))
     print('Right side avg: ', np.average(scan_rside))
     print('Left side avg: ',np.average(scan_lside))
-    print('Left side max: ', np.argmax(scan_lside))
+    print('Left side max: ', np.argmax(scan_dl[3:6]))
 
     #if left side average is higher then we pick the turning degree on the left side
 
