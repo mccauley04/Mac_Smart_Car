@@ -1,6 +1,7 @@
 # -*- coding:UTF-8 -*-
 import RPi.GPIO as GPIO
 import time
+import numpy as np
 
 'Definition of  motor pins'
 IN1 = 20
@@ -93,7 +94,7 @@ def servo_appointed_detection(pos):
 
 
 scan_dl = []
-
+scan_dl1 = np.array(scan_dl)
 
 def servo_color_carstate():
     'RED LIGHT'
@@ -119,7 +120,10 @@ def decision_time():
     right_side = scan_dl[0] + scan_dl[1] + scan_dl[2] + scan_dl[3]
     left_side = scan_dl[3] + scan_dl[4] + scan_dl[5] + scan_dl[6]
 
-    print(right_side)
+    print(np.max(scan_dl1))
+
+        #hard right turn
+
     print(left_side)
 
     #If i line everything up I could ideally define a certian degree of a turn.

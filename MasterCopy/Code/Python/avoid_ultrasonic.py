@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 import time
 
+
 #Definition of  pin 
 IN1 = 20
 IN2 = 21
