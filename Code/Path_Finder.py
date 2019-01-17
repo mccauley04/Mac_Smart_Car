@@ -92,7 +92,6 @@ def servo_appointed_detection(pos):
         pwm_servo.ChangeDutyCycle(2.5 + 10 * pos / 180)
 
 
-
 scan_dl = []
 scan_dl1 = np.array(scan_dl)
 
@@ -116,7 +115,8 @@ def decision_time():
     'YELLOW'
 
     scan_rside = [scan_dl[0:3]]
-    scan_lside = [scan_dl[3], scan_dl[4], scan_dl[5], scan_dl[6]]
+    scan_lside = [scan_dl[3:6]]
+    scan_front = [scan_dl[7]]
 
     print(np.argmax(scan_dl))
     print('Right side max: ',np.argmax(scan_rside))
