@@ -101,7 +101,7 @@ def servo_color_carstate():
         time.sleep(1)
 
         scan_distance_list.append(str(Distance_test()))
-        print(round(scan_distance_list),2)
+        print(format(round(scan_distance_list),2))
 
 
 
