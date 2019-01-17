@@ -115,16 +115,19 @@ def servo_color_carstate():
 def decision_time():
     'YELLOW'
 
-    #check
-
-    scan_rside = [scan_dl[0], scan_dl[1], scan_dl[2], scan_dl[3]]
+    scan_rside = [scan_dl[0,1,2,3]]
     scan_lside = [scan_dl[3], scan_dl[4], scan_dl[5], scan_dl[6]]
 
     print(np.argmax(scan_dl))
-    print('Right side max',np.argmax(scan_rside))
-    print("Right side avg: ", np.average(scan_rside))
+    print('Right side max: ',np.argmax(scan_rside))
+    print('Right side avg: ', np.average(scan_rside))
     print('Left side avg: ',np.average(scan_lside))
     print('Left side max: ', np.argmax(scan_lside))
+
+    #if left side average is higher then we pick the turning degree on the left side
+
+    #trouble thinking how to always scan at the 90 degree // front angle // or get the robot to turn towards the highest angle
+
 
 try:
     pre_checks()
